@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace pequeno_ejercicio_de_serializacion
     {
         public ejecucion()
         {
+            //hola nico, para el miercoles me podrias ayudar, con el examen?
             List<perro> listaperros = new List<perro>();
             Console.WriteLine("crear un perro [1]:  ");
             Console.WriteLine("Cargar un perro [2]:  ");
@@ -33,7 +35,7 @@ namespace pequeno_ejercicio_de_serializacion
                 double peseo = Convert.ToDouble(Console.ReadLine());
                 perro mascota = new perro(nommbre, true, edead, peseo);
                 mascota.MostrarInfo();
-                Console.WriteLine("serializanco");
+                Console.WriteLine("serializando");
                 BinaryFormatter formatter = new BinaryFormatter();
                 Stream miStream = new FileStream("perro.bin", FileMode.Create, FileAccess.Write, FileShare.None);
                 formatter.Serialize(miStream, mascota);
@@ -83,23 +85,23 @@ namespace pequeno_ejercicio_de_serializacion
             }
             else if (Opcion == 4)
             {
-                if (saveEquipos.ObtenerListaEquipos().Count != 0)
+                if (saveEquipos.ObtenerLista().Count != 0)
                 {
                     Console.WriteLine("de que lista quiere ver la informacion");
-                    for (int i = 0; i < saveEquipos.ObtenerListaEquipos().Count; i++)
+                    for (int i = 0; i < saveEquipos.ObtenerLista().Count; i++)
                     {
-                        Console.WriteLine(i + 1 + ") " + saveEquipos.ObtenerListaEquipos()[i].get_nombre());
+                        Console.WriteLine(i + 1 + ") " + saveEquipos.ObtenerLista()[i].get_nombre());
                     }
                     string Resp = Console.ReadLine();
                     int equipoelegido;
                     Int32.TryParse(Resp, out equipoelegido);
-                    while (equipoelegido == 0 && equipoelegido < saveEquipos.ObtenerListaEquipos().Count)
+                    while (equipoelegido == 0 && equipoelegido < saveEquipos.ObtenerLista().Count)
                     {
                         Console.WriteLine("ingrese un numero valido");
                         Resp = Console.ReadLine();
                         Int32.TryParse(Resp, out equipoelegido);
                     }
-                    saveEquipos.ObtenerListaEquipos()[equipoelegido - 1].Informacion_Del_Equipo();
+                    saveEquipos.ObtenerLista()[equipoelegido - 1].Informacion_Del_Equipo();
 
                     Thread.Sleep(5000);
                     Console.Clear();

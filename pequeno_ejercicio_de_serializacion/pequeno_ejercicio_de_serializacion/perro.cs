@@ -42,5 +42,8 @@ namespace pequeno_ejercicio_de_serializacion
         {
             return "Nombre: " + Nombre + "; Edad: " + Edad + "; Peso: " + Peso;
         }
+
+
+
     }
 }

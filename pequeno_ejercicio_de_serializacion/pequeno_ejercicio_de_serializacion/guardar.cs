@@ -16,7 +16,7 @@ namespace pequeno_ejercicio_de_serializacion
     {
         string nombreDelEquipo;
         private bool tipodeequipo { get; set; }  //dice si es nacional o de liga (true es nacional)
-      
+
         private List<perro> PersonasDelEquipo = new List<perro>();
         private List<Equipo> TodosLosEquipos = new List<Equipo>();
 
@@ -70,7 +70,7 @@ namespace pequeno_ejercicio_de_serializacion
             }
         }
 
-        public List<Equipo> ObtenerListaEquipos()
+        public List<Equipo> ObtenerLista()
         {
             return TodosLosEquipos;
         }
@@ -82,20 +82,15 @@ namespace pequeno_ejercicio_de_serializacion
         public void Informacion_Del_Equipo()
         {
             if (tipodeequipo)
-                Console.WriteLine("el equipo es nacional");
+                Console.WriteLine("es nacional");
             else
-                Console.WriteLine("el equipo es de liga");
+                Console.WriteLine(" es de liga");
 
-            Console.WriteLine("Informacion jugadores: ");
+            Console.WriteLine("Informacion: ");
             for (int i = 0; i < PersonasDelEquipo.Count(); i++)
             {
                 Console.WriteLine(PersonasDelEquipo[i].Informacion());
             }
         }
-
-
-
-        // se podrian agregar funciones para agregar mas jugadores y para despedirlos, con el objetivo de que los equipos sean modificables (lo mismo con los medicos y entrenadores)
-        //siempre que se compruebe que cada equipo al participar en un partido tiene almenos lo minimo pedido (15 jugadores, un medico y un entrenador)
     }
 }
